@@ -257,10 +257,10 @@ def health_check():
     }), 200
 
 if __name__ == '__main__':
-    print("🚀 Starting OTP Email Server...")
+    port = int(os.environ.get('PORT', 5000))
+    print(f"🚀 Starting OTP Email Server on port {port}...")
     print("📧 Make sure to update SENDER_EMAIL and SENDER_PASSWORD in the code")
     print("🔑 For Gmail, use an App Password instead of your regular password")
-    port = int(os.environ.get('PORT', 5000))
     print(f"🌐 Server will run on http://0.0.0.0:{port}")
     print("📋 Available endpoints:")
     print("   POST /send-otp - Send OTP via email")
@@ -268,3 +268,6 @@ if __name__ == '__main__':
     print("=" * 60)
     
     app.run(debug=False, host='0.0.0.0', port=port)
+
+# For production with gunicorn
+app = app

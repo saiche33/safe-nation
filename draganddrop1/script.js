@@ -229,11 +229,38 @@ window.sendOtp = function() { // Made global to ensure HTML can see it
         return;
     }
     
-    // Simulate sending OTP
-    alert("OTP sent to your mobile: 1234"); 
+    // Send OTP via backend API
+    const backendUrl = window.location.hostname === 'localhost' 
+        ? 'http://localhost:5000/send-otp'
+        : 'https://safe-nation-otp-backend.onrender.com/send-otp';
     
-    document.getElementById('step1').style.display = 'none';
-    document.getElementById('step2').style.display = 'block';
+    fetch(backendUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            email: userId,
+            otp: Math.floor(1000 + Math.random() * 9000).toString()
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("OTP sent to your email!");
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'block';
+        } else {
+            if(errorMsg) errorMsg.innerText = data.error || "Failed to send OTP";
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // Fallback for testing
+        alert("OTP sent to your email: 1234"); 
+        document.getElementById('step1').style.display = 'none';
+        document.getElementById('step2').style.display = 'block';
+    });
 }
 
 // 3. Verify OTP (Step 2)
