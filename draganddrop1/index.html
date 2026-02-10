@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart File Processor - AI-Powered Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7,10 12,15 17,10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span class="brand-text">Smart Processor</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                AI-Powered File Analysis
+                <span class="gradient-text">Made Simple</span>
+            </h1>
+            <p class="hero-description">
+                Upload your photos and videos to get instant AI-powered insights, predictions, and analysis. 
+                Our advanced machine learning algorithms process your content in real-time.
+            </p>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="upload-section">
+        <div class="container">
+            <!-- Upload Zone -->
+            <div class="upload-zone" id="uploadZone">
+                <div class="upload-content">
+                    <div class="upload-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17,8 12,3 7,8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h3 class="upload-title">Drop your files here</h3>
+                    <p class="upload-description">or click to browse</p>
+                    <div class="supported-formats">
+                        <span class="format-badge">JPG</span>
+                        <span class="format-badge">PNG</span>
+                        <span class="format-badge">MP4</span>
+                        <span class="format-badge">AVI</span>
+                        <span class="format-badge">MOV</span>
+                    </div>
+                </div>
+                <input type="file" id="fileInput" multiple accept="image/*,video/*" hidden>
+            </div>
+
+            <!-- Upload Progress -->
+            <div class="upload-progress" id="uploadProgress" style="display: none;">
+                <div class="progress-header">
+                    <span class="progress-text">Processing files...</span>
+                    <span class="progress-percentage">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <!-- File Preview Grid -->
+            <div class="file-preview-grid" id="filePreviewGrid" style="display: none;">
+                <h3 class="section-title">Uploaded Files</h3>
+                <div class="preview-container" id="previewContainer">
+                    <!-- File previews will be inserted here -->
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <h3 class="section-title">Analysis Results</h3>
+                <div class="results-container" id="resultsContainer">
+                    <!-- Analysis results will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-heading">Powerful Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="m12 1 0 6"></path>
+                            <path d="m12 17 0 6"></path>
+                            <path d="m4.22 4.22 4.24 4.24"></path>
+                            <path d="m15.54 15.54 4.24 4.24"></path>
+                            <path d="m1 12 6 0"></path>
+                            <path d="m17 12 6 0"></path>
+                            <path d="m4.22 19.78 4.24-4.24"></path>
+                            <path d="m15.54 8.46 4.24-4.24"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">AI Processing</h3>
+                    <p class="feature-description">Advanced machine learning algorithms analyze your content with high accuracy and speed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7,10 12,15 17,10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Easy Upload</h3>
+                    <p class="feature-description">Drag and drop interface with support for multiple file formats and batch processing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Secure</h3>
+                    <p class="feature-description">Your files are processed securely with end-to-end encryption and automatic deletion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <div class="container">
+        
+       
+
+        <div id="resultsContainer" class="results-grid">
+            </div>
+
+    </div>
+
+    <div id="verificationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>⚠️ Restricted Access</h2>
+            </div>
+            <div class="modal-body">
+                <p>This content is flagged as <strong>Sensitive (18+)</strong>.</p>
+                <p>To view or download, please verify your identity.</p>
+                
+                <div id="step1">
+                    <label>Aadhar / Phone Number:</label>
+                    <input type="text" id="userIdInput" placeholder="Enter ID number">
+                    <p id="step1Error" class="error-msg"></p>
+                    <button class="btn-verify" onclick="sendOtp()">Send OTP</button>
+                </div>
+
+                <div id="step2" style="display: none;">
+                    <label>Enter OTP (Sent to your mobile):</label>
+                    <input type="text" id="otpInput" placeholder="Ex: 1234">
+                    <p id="step2Error" class="error-msg"></p>
+                    <button class="btn-verify" onclick="verifyOtp()">Verify & Download</button>
+                    <button class="btn-cancel" onclick="resetModal()">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Smart Processor. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email OTP Verification System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <!-- Header -->
+            <div class="header">
+                <div class="shield-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <h1>Email Verification</h1>
+                <p class="header-subtitle" id="headerSubtitle">Enter your email to receive OTP</p>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <!-- Error Message -->
+                <div class="error-message" id="errorMessage" style="display: none;">
+                    <p id="errorText"></p>
+                </div>
+
+                <!-- Email Step -->
+                <div class="step" id="emailStep">
+                    <div class="input-group">
+                        <label for="emailInput">Email Address</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <input type="email" id="emailInput" placeholder="Enter your email address">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="sendOtpBtn">
+                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <span id="sendBtnText">Send OTP</span>
+                    </button>
+                </div>
+
+                <!-- OTP Step -->
+                <div class="step" id="otpStep" style="display: none;">
+                    <div class="otp-info">
+                        <p>We've sent a 6-digit code to<br><span id="emailDisplay"></span></p>
+                    </div>
+
+                    <div class="otp-inputs">
+                        <input type="text" class="otp-input" maxlength="1" data-index="0">
+                        <input type="text" class="otp-input" maxlength="1" data-index="1">
+                        <input type="text" class="otp-input" maxlength="1" data-index="2">
+                        <input type="text" class="otp-input" maxlength="1" data-index="3">
+                        <input type="text" class="otp-input" maxlength="1" data-index="4">
+                        <input type="text" class="otp-input" maxlength="1" data-index="5">
+                    </div>
+
+                    <button class="btn btn-success" id="verifyOtpBtn">
+                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20,6 9,17 4,12"/>
+                        </svg>
+                        <span>Verify OTP</span>
+                    </button>
+
+                    <div class="resend-section">
+                        <p>Didn't receive the code?</p>
+                        <button class="btn-link" id="resendBtn">
+                            <span id="resendText">Resend OTP</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Success Step -->
+                <div class="step" id="successStep" style="display: none;">
+                    <div class="success-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20,6 9,17 4,12"/>
+                        </svg>
+                    </div>
+                    <div class="success-content">
+                        <h3>Email Verified Successfully!</h3>
+                        <p>Your email address has been verified and is now active.</p>
+                    </div>
+                    <button class="btn btn-primary" id="resetBtn">
+                        Verify Another Email
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Card -->
+        <div class="info-card">
+            <p>Make sure to start the Python server on port 5000 for email functionality to work.</p>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a9 9 0 11-6.219-8.56"/>
+        </svg>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
