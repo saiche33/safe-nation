@@ -235,6 +235,18 @@ def send_otp():
     except Exception as e:
         return jsonify({"error": f"Server error: {str(e)}"}), 500
 
+@app.route('/', methods=['GET'])
+def root():
+    """Root endpoint"""
+    return jsonify({
+        "message": "OTP Email Service is running",
+        "status": "active",
+        "endpoints": {
+            "send_otp": "POST /send-otp",
+            "health_check": "GET /health"
+        }
+    }), 200
+
 @app.route('/health', methods=['GET'])
 def health_check():
     """Health check endpoint"""
