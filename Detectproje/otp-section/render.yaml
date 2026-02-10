@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: safe-nation-otp
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    pythonVersion: 3.9
