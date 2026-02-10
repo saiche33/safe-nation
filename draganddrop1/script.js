@@ -230,9 +230,9 @@ window.sendOtp = function() { // Made global to ensure HTML can see it
     }
     
     // Send OTP via backend API
-    const backendUrl = window.location.hostname === 'localhost' 
-        ? 'http://localhost:5000/send-otp'
-        : 'https://safe-nation-otp-backend.onrender.com/send-otp';
+    const backendUrl = import.meta.env?.VITE_API_URL 
+        ? `${import.meta.env.VITE_API_URL}/send-otp`
+        : 'http://localhost:5000/send-otp';
     
     fetch(backendUrl, {
         method: 'POST',

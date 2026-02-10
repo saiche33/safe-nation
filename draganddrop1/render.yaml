@@ -1,8 +1,10 @@
 services:
   - type: web
     name: safe-nation-frontend
-    env: node
+    env: static
     buildCommand: npm install && npm run build
-    startCommand: npm run preview
-    healthCheckPath: /
+    staticPublishPath: dist
     nodeVersion: 18
+    envVars:
+      - key: VITE_API_URL
+        value: https://safe-nation-otp-backend.onrender.com
